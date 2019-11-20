@@ -1,19 +1,27 @@
 @gray : 'f4f4f4';
-@primary : green;
-@secondary : rgb(12, 190, 12);
+@primary : #11743c;
+@secondary : #2cc76f;
+@white: white;
+@white-z: rgba(255, 255, 255, 0.774);
+@gradiente1: linear-gradient( 135deg, @secondary 0%, @primary 100%);
+
+body{
+	background-image: @gradiente1;
+	width: 100vw;
+	height: 100vh;
+}
 
 .card{
-	width: 250px;
-	height: 450px;
-	background-color: @gray;
-	border-radius: 25px;
 	h2{
 		size: 15px;
 	}
 }
 
 .gp-ma-md{
-	margin: 50px;
+	margin: 0 30px;
+}
+.gp-text-w{
+	color: @white;
 }
 
 .gp-mt-sm{
@@ -28,4 +36,26 @@
 
 .gp-right{
 	float: right;
+}
+
+.pure-button{
+	background-color: @primary;
+	width: 100%;
+}
+
+input{
+	width: 100%;
+}
+
+.gp-display-off{
+	display: none;
+}
+
+.gp-display-on{
+	display: block;
+}
+
+.gp-comment{
+	background-color: @white-z;
+	width: 100vw;
 }

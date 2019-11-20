@@ -16,20 +16,20 @@ var	urls = [
 	'static/js/main.chunk.js'
 ];
 
-function activateServiceWorker() {
-	console.log('activateServiceWorker');
-	console.log('currentId = ', currentId);
-	console.log('lastId = ', lastId);
-	caches.open(currentId)
-			.then(cache	=>	{
-					console.log('Cache Storage ' + currentId + ' foi ativado com sucesso!');
-					cache.addAll(urls)
-							.then(function(){
-									caches.delete(lastId)
-									console.log('Cache Storage ' + lastId + ' foi excluído!');
-					})
-	})
-}
+// function activateServiceWorker() {
+// 	console.log('activateServiceWorker');
+// 	console.log('currentId = ', currentId);
+// 	console.log('lastId = ', lastId);
+// 	caches.open(currentId)
+// 			.then(cache	=>	{
+// 					console.log('Cache Storage ' + currentId + ' foi ativado com sucesso!');
+// 					cache.addAll(urls)
+// 							.then(function(){
+// 									caches.delete(lastId)
+// 									console.log('Cache Storage ' + lastId + ' foi excluído!');
+// 					})
+// 	})
+// }
 
 self.addEventListener("activate", activateServiceWorker);
 

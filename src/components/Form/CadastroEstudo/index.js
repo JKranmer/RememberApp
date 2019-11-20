@@ -78,9 +78,9 @@ class FormCadastroEstudo extends React.Component {
 	render() {
 		let mensagens = this.state.mensagens;
 		return (
-			<div className="card gp-ma-md">
+			<div className="card gp-ma-md gp-display-off">
 
-				<Header class="gp-text-center" title="Cadastrar Grupo de Estudo" />
+				<Header class="gp-text-center gp-text-w" title="Cadastrar Grupo de Estudo" />
 				<form className="pure-form card" onSubmit={this.handleSubmit}>
 					<Input id="nome" type="text" placeholder="Nome" onChange={this.handlerInputChange} value={this.state.estudo.nome}/>
 					<br />
@@ -88,13 +88,15 @@ class FormCadastroEstudo extends React.Component {
 					<br />
 					<Input id="status" type="text" placeholder="Status" onChange={this.handlerInputChange} value={this.state.estudo.status} />
 					<br />
-					<Button class="pure-button gp-mt-sm gp-right" text="Cadastrar" />
+					<Button class="pure-button gp-mt-sm gp-right gp-text-w" text="Cadastrar" />
 				</form>
-				{
-          mensagens.map((mensagem,index) => (
-          	<p key={index}>{mensagem}</p>
-        	))
-      	}
+				<div className="gp-comment">
+					{
+						mensagens.map((mensagem,index) => (
+							<p key={index}>{mensagem}</p>
+						))
+					}
+				</div>
 			</div>
 		);
 	}

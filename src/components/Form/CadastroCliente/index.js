@@ -82,10 +82,10 @@ handleSubmit = (event) => {
 render(){
   let mensagens = this.state.mensagens;
   return (
-    <div className="card gp-ma-md">
+    <div className="card gp-ma-md pure-g">
 
-      <Header class="gp-text-center" title="Cadastro de Cliente" />
-      <form className="pure-form card" onSubmit={this.handleSubmit}>
+      <Header class="gp-text-center gp-text-w pure-u-5-5" title="Cadastro de Cliente" />
+      <form className="pure-form card pure-u-5-5" onSubmit={this.handleSubmit}>
         <div className="gp-mt-sm">
         <Input id="nome" type="text" placeholder="Nome" onChange={this.handlerInputChange} value={this.state.cliente.nome} />
         </div>
@@ -94,7 +94,7 @@ render(){
         <br />
         <Input id="senha" type="password" placeholder="Senha" onChange={this.handlerInputChange} value={this.state.cliente.senha} />
         <br />
-        <Button class="pure-button gp-mt-sm gp-right" text="Gravar" />
+        <Button class="pure-button gp-mt-sm gp-right gp-text-w" text="Gravar" />
         <br/>
       </form>
       {
