@@ -1,5 +1,4 @@
 import React from 'react';
-import Label from '../../Label';
 import Input from '../../Input';
 import Button from '../../Button';
 import Header from '../../Header';
@@ -12,7 +11,8 @@ class FormCadastroCliente extends React.Component {
     this.state = {
       cliente: {
         nome: "",
-        email: ""
+        email: "",
+        senha: ""
       },
       mensagens:[]
     }
@@ -20,6 +20,9 @@ class FormCadastroCliente extends React.Component {
 
   validateNome(nome) {
     return nome.length !== 0  && nome.length < 100;
+  }
+  validateSenha(senha) {
+    return senha.length !== 0  && senha.length < 100;
   }
   validateEmail(email) {
     // regular expression
@@ -30,6 +33,8 @@ class FormCadastroCliente extends React.Component {
     let errors = []
     if(!this.validateNome(clienteState.nome))
       errors.push("Nome Inválido")
+    if(!this.validateSenha(clienteState.senha))
+      errors.push("Senha Inválido")
     if(!this.validateEmail(clienteState.email))
       errors.push("Email Inválido")
     return errors;
@@ -37,6 +42,7 @@ class FormCadastroCliente extends React.Component {
   resetClienteState(clienteState){
     clienteState.nome = "";
     clienteState.email = "";
+    clienteState.senha = "";
     this.setState(
       {cliente:clienteState}
     )
@@ -81,12 +87,12 @@ render(){
       <Header class="gp-text-center" title="Cadastro de Cliente" />
       <form className="pure-form card" onSubmit={this.handleSubmit}>
         <div className="gp-mt-sm">
-        <Label text="Nome: " class="gp-mr-sm"/>
-        <Input id="nome" type="text" placeholder="..." onChange={this.handlerInputChange} value={this.state.cliente.nome} />
+        <Input id="nome" type="text" placeholder="Nome" onChange={this.handlerInputChange} value={this.state.cliente.nome} />
         </div>
         <br />
-        <Label text="E-mail: " />
-        <Input id="email" type="text" placeholder="..." onChange={this.handlerInputChange} value={this.state.cliente.email}/>
+        <Input id="email" type="text" placeholder="E-mail" onChange={this.handlerInputChange} value={this.state.cliente.email}/>
+        <br />
+        <Input id="senha" type="password" placeholder="Senha" onChange={this.handlerInputChange} value={this.state.cliente.senha} />
         <br />
         <Button class="pure-button gp-mt-sm gp-right" text="Gravar" />
         <br/>
